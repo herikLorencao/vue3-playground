@@ -4,27 +4,37 @@
   </header>
   <menu-component @active="changeMenu" />
   <main>
-    <composition-api :info="propInfo" :optional-prop="optionalProp" />
+    <composition-api
+      v-if="isMenu(0)"
+      :info="propInfo"
+      :optional-prop="optionalProp"
+    />
+    <parent-root v-if="isMenu(1)"></parent-root>
   </main>
 </template>
 
 <script>
 import MenuComponent from "../components/Menu";
-import CompositionApi from "../components/CompositionApi";
+import CompositionApi from "../components/composition-api/CompositionApi";
+import ParentRoot from "../components/provide-inject/ParentRoot";
 
 export default {
   components: {
     MenuComponent,
     CompositionApi,
+    ParentRoot,
   },
   data() {
     return {
-      funcionality: "",
+      funcionality: 0,
       propInfo: 1,
       optionalProp: "",
     };
   },
   methods: {
+    isMenu(menu) {
+      return this.funcionality == menu;
+    },
     changeMenu(idxElement) {
       this.funcionality = idxElement;
     },

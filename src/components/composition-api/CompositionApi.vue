@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import { userRepository } from "./composition-api/user-repository";
-import { otherMethods } from "./composition-api/other-methods";
+import { userRepository } from "./user-repository";
+import { otherMethods } from "./other-methods";
 import { onMounted, toRef } from "@vue/runtime-core";
 
 export default {
