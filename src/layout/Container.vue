@@ -10,6 +10,7 @@
       :optional-prop="optionalProp"
     />
     <parent-root v-if="isMenu(1)"></parent-root>
+    <mixins v-if="isMenu(2)"></mixins>
   </main>
 </template>
 
@@ -17,12 +18,14 @@
 import MenuComponent from "../components/Menu";
 import CompositionApi from "../components/composition-api/CompositionApi";
 import ParentRoot from "../components/provide-inject/ParentRoot";
+import Mixins from "../components/mixins/Mixins";
 
 export default {
   components: {
     MenuComponent,
     CompositionApi,
     ParentRoot,
+    Mixins,
   },
   data() {
     return {
