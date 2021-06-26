@@ -11,6 +11,7 @@
     />
     <parent-root v-if="isMenu(1)"></parent-root>
     <mixins v-if="isMenu(2)"></mixins>
+    <root v-if="isMenu(3)"></root>
   </main>
 </template>
 
@@ -19,6 +20,7 @@ import MenuComponent from "../components/Menu";
 import CompositionApi from "../components/composition-api/CompositionApi";
 import ParentRoot from "../components/provide-inject/ParentRoot";
 import Mixins from "../components/mixins/Mixins";
+import Root from "../components/async-components/Root";
 
 export default {
   components: {
@@ -26,6 +28,7 @@ export default {
     CompositionApi,
     ParentRoot,
     Mixins,
+    Root,
   },
   data() {
     return {
