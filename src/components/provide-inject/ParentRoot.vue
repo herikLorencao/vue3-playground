@@ -10,6 +10,7 @@
 <script>
 import { ref } from "@vue/reactivity";
 import Children from "./Children";
+import { onMounted } from "@vue/runtime-core";
 
 export default {
   components: {
@@ -17,8 +18,14 @@ export default {
   },
   setup() {
     const provideValue = ref("Valor root");
+
+    onMounted(() =>
+      setInterval(() => (provideValue.value = "Valor root atualizado"), 2000)
+    );
+
     return { provideValue };
   },
+  // valores reativos e estaticos podem ser passados
   provide() {
     return {
       provideValue: this.provideValue,
