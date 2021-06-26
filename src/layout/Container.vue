@@ -4,7 +4,7 @@
   </header>
   <menu-component @active="changeMenu" />
   <main>
-    <composition-api :info="propInfo" />
+    <composition-api :info="propInfo" :optional-prop="optionalProp" />
   </main>
 </template>
 
@@ -21,6 +21,7 @@ export default {
     return {
       funcionality: "",
       propInfo: 1,
+      optionalProp: "",
     };
   },
   methods: {
@@ -29,7 +30,10 @@ export default {
     },
   },
   mounted() {
-    setInterval(() => (this.propInfo = 2), 2000);
+    setInterval(() => {
+      this.propInfo = 2;
+      this.optionalProp = "teste";
+    }, 2000);
   },
 };
 </script>
