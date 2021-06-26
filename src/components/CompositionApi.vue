@@ -3,14 +3,23 @@
   <input v-model="reactiveVariable" />
   <p>{{ users }}</p>
   <p>Número de usuários: {{ numberOfUsers }}</p>
+  <p>Prop value: {{ info.value }}</p>
 </template>
 
 <script>
-import { ref } from "@vue/reactivity";
+import { ref, toRef } from "@vue/reactivity";
 import UserService from "@/services/UserService";
 import { onMounted, watch } from "@vue/runtime-core";
 export default {
-  setup() {
+  props: {
+    info: {
+      type: Object,
+      required: true,
+    },
+  },
+  setup(props) {
+    // tornando props reativas
+    const { infoProp } = toRef(props);
     const reactiveVariable = ref("initial value");
     const users = ref([]);
     const numberOfUsers = ref(0);
@@ -28,7 +37,7 @@ export default {
 
     watch(users, updateNumberOfUsers);
 
-    return { reactiveVariable, users, numberOfUsers };
+    return { reactiveVariable, users, numberOfUsers, infoProp };
   },
 };
 </script>

@@ -4,7 +4,7 @@
   </header>
   <menu-component @active="changeMenu" />
   <main>
-    <composition-api />
+    <composition-api :info="propInfo" />
   </main>
 </template>
 
@@ -20,12 +20,16 @@ export default {
   data() {
     return {
       funcionality: "",
+      propInfo: 1,
     };
   },
   methods: {
     changeMenu(idxElement) {
       this.funcionality = idxElement;
     },
+  },
+  mounted() {
+    setInterval(() => (this.propInfo = 2), 2000);
   },
 };
 </script>
