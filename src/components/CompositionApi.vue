@@ -3,41 +3,24 @@
   <input v-model="reactiveVariable" />
   <p>{{ users }}</p>
   <p>Número de usuários: {{ numberOfUsers }}</p>
-  <p>Prop value: {{ info.value }}</p>
+  <p>Prop value: {{ info }}</p>
 </template>
 
 <script>
-import { ref, toRef } from "@vue/reactivity";
-import UserService from "@/services/UserService";
-import { onMounted, watch } from "@vue/runtime-core";
+import { userRepository } from "./composition-api/user-repository";
+import { otherMethods } from "./composition-api/other-methods";
+
 export default {
   props: {
     info: {
-      type: Object,
+      type: Number,
       required: true,
     },
   },
   setup(props) {
-    // tornando props reativas
-    const { infoProp } = toRef(props);
-    const reactiveVariable = ref("initial value");
-    const users = ref([]);
-    const numberOfUsers = ref(0);
-    const userService = new UserService();
-
-    const getUsers = async () => {
-      users.value = await userService.list();
-    };
-
-    const updateNumberOfUsers = (newUsersValue) => {
-      numberOfUsers.value = newUsersValue.length;
-    };
-
-    onMounted(getUsers);
-
-    watch(users, updateNumberOfUsers);
-
-    return { reactiveVariable, users, numberOfUsers, infoProp };
+    const { users, numberOfUsers } = userRepository();
+    const { reactiveVariable, infoProp } = otherMethods(props);
+    return { users, numberOfUsers, reactiveVariable, infoProp };
   },
 };
 </script>
