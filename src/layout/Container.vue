@@ -13,6 +13,7 @@
     <mixins v-if="isMenu(2)"></mixins>
     <root v-if="isMenu(3)"></root>
     <custom-directives v-if="isMenu(4)"></custom-directives>
+    <teleport-component v-if="isMenu(5)"></teleport-component>
   </main>
 </template>
 
@@ -23,6 +24,7 @@ import ParentRoot from "../components/provide-inject/ParentRoot";
 import Mixins from "../components/mixins/Mixins";
 import Root from "../components/async-components/Root";
 import CustomDirectives from "../components/custom-directives/CustomDirectives";
+import TeleportComponent from "../components/teleport/Teleport";
 
 export default {
   components: {
@@ -32,6 +34,7 @@ export default {
     Mixins,
     Root,
     CustomDirectives,
+    TeleportComponent,
   },
   data() {
     return {

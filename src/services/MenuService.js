@@ -5,6 +5,8 @@ export default class MenuService {
         "Mixins",
         "Async Component",
         "Custom Directives",
+        "Teleport",
+        "TS",
     ];
 
     list() {
