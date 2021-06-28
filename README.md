@@ -1,24 +1,13 @@
-# vue3-test
+# Vue 3 Playground
 
-## Project setup
-```
-npm install
-```
+Projeto para testes das novas funcionalidades do Vue 3.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Funcionalidades estudadas:
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- Composition API
+- Provide/Inject
+- Mixins
+- Async Components
+- Custom Directives
+- Teleport
+- Typescript Support
