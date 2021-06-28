@@ -12,6 +12,7 @@
     <parent-root v-if="isMenu(1)"></parent-root>
     <mixins v-if="isMenu(2)"></mixins>
     <root v-if="isMenu(3)"></root>
+    <custom-directives v-if="isMenu(4)"></custom-directives>
   </main>
 </template>
 
@@ -21,6 +22,7 @@ import CompositionApi from "../components/composition-api/CompositionApi";
 import ParentRoot from "../components/provide-inject/ParentRoot";
 import Mixins from "../components/mixins/Mixins";
 import Root from "../components/async-components/Root";
+import CustomDirectives from "../components/custom-directives/CustomDirectives";
 
 export default {
   components: {
@@ -29,6 +31,7 @@ export default {
     ParentRoot,
     Mixins,
     Root,
+    CustomDirectives,
   },
   data() {
     return {
