@@ -14,6 +14,7 @@
     <root v-if="isMenu(3)"></root>
     <custom-directives v-if="isMenu(4)"></custom-directives>
     <teleport-component v-if="isMenu(5)"></teleport-component>
+    <typescript v-if="isMenu(6)"></typescript>
   </main>
 </template>
 
@@ -25,6 +26,7 @@ import Mixins from "../components/mixins/Mixins";
 import Root from "../components/async-components/Root";
 import CustomDirectives from "../components/custom-directives/CustomDirectives";
 import TeleportComponent from "../components/teleport/Teleport";
+import Typescript from "../components/typescript-component/Typescript";
 
 export default {
   components: {
@@ -35,6 +37,7 @@ export default {
     Root,
     CustomDirectives,
     TeleportComponent,
+    Typescript,
   },
   data() {
     return {
